@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="320" viewBox="0 0 1400 320" role="img" aria-label="Week 1 foundations diagram">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="320" rx="24" fill="url(#g)"/>
+  <text x="64" y="70" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Week 1 - AI Foundations</text>
+  <text x="64" y="108" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">From AI basics to prompts, tokens, context, and API thinking</text>
+  <g fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">
+    <rect x="80" y="180" width="200" height="64" rx="16" fill="#0ea5e9" opacity="0.9"/>
+    <rect x="320" y="180" width="200" height="64" rx="16" fill="#22c55e" opacity="0.9"/>
+    <rect x="560" y="180" width="200" height="64" rx="16" fill="#f59e0b" opacity="0.92"/>
+    <rect x="800" y="180" width="200" height="64" rx="16" fill="#a855f7" opacity="0.9"/>
+    <rect x="1040" y="180" width="200" height="64" rx="16" fill="#ef4444" opacity="0.9"/>
+  </g>
+  <g stroke="#e2e8f0" stroke-width="4" stroke-linecap="round">
+    <path d="M280 212h30"/>
+    <path d="M520 212h30"/>
+    <path d="M760 212h30"/>
+    <path d="M1000 212h30"/>
+    <path d="M306 198l16 14-16 14" fill="none"/>
+    <path d="M546 198l16 14-16 14" fill="none"/>
+    <path d="M786 198l16 14-16 14" fill="none"/>
+    <path d="M1026 198l16 14-16 14" fill="none"/>
+  </g>
+  <text x="180" y="218" text-anchor="middle">AI Basics</text>
+  <text x="420" y="218" text-anchor="middle">Prompting</text>
+  <text x="660" y="218" text-anchor="middle">Tokens</text>
+  <text x="900" y="218" text-anchor="middle">Context</text>
+  <text x="1140" y="218" text-anchor="middle">LLM APIs</text>
+</svg>

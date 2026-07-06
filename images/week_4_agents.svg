@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="320" viewBox="0 0 1400 320" role="img" aria-label="Week 4 agents diagram">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="320" rx="24" fill="url(#g)"/>
+  <text x="64" y="70" fill="#f5f3ff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Week 4 - AI Agents</text>
+  <text x="64" y="108" fill="#ddd6fe" font-family="Inter, Arial, sans-serif" font-size="18">Planning, multi-agent coordination, MCP, evaluation, guardrails, and deployment</text>
+  <g fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">
+    <rect x="60" y="178" width="140" height="68" rx="16" fill="#0ea5e9"/>
+    <rect x="240" y="178" width="150" height="68" rx="16" fill="#22c55e"/>
+    <rect x="430" y="178" width="180" height="68" rx="16" fill="#f59e0b"/>
+    <rect x="650" y="178" width="140" height="68" rx="16" fill="#a855f7"/>
+    <rect x="830" y="178" width="160" height="68" rx="16" fill="#ef4444"/>
+    <rect x="1030" y="178" width="170" height="68" rx="16" fill="#14b8a6"/>
+  </g>
+  <g stroke="#f5f3ff" stroke-width="4" stroke-linecap="round">
+    <path d="M200 212h20"/>
+    <path d="M390 212h20"/>
+    <path d="M610 212h20"/>
+    <path d="M790 212h20"/>
+    <path d="M990 212h20"/>
+    <path d="M216 198l16 14-16 14" fill="none"/>
+    <path d="M406 198l16 14-16 14" fill="none"/>
+    <path d="M626 198l16 14-16 14" fill="none"/>
+    <path d="M806 198l16 14-16 14" fill="none"/>
+    <path d="M1006 198l16 14-16 14" fill="none"/>
+  </g>
+  <text x="130" y="218" text-anchor="middle">Goal</text>
+  <text x="315" y="218" text-anchor="middle">Plan</text>
+  <text x="520" y="218" text-anchor="middle">Agents</text>
+  <text x="720" y="218" text-anchor="middle">MCP</text>
+  <text x="910" y="218" text-anchor="middle">Eval</text>
+  <text x="1115" y="218" text-anchor="middle">Deploy</text>
+</svg>

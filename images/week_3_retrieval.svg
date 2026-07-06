@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="320" viewBox="0 0 1400 320" role="img" aria-label="Week 3 retrieval and memory diagram">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#7c2d12"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="320" rx="24" fill="url(#g)"/>
+  <text x="64" y="70" fill="#fff7ed" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Week 3 - Retrieval and Memory</text>
+  <text x="64" y="108" fill="#ffedd5" font-family="Inter, Arial, sans-serif" font-size="18">Embeddings, vector search, RAG, and long-term memory</text>
+  <g fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">
+    <rect x="60" y="178" width="150" height="68" rx="16" fill="#0ea5e9"/>
+    <rect x="250" y="178" width="170" height="68" rx="16" fill="#22c55e"/>
+    <rect x="460" y="178" width="160" height="68" rx="16" fill="#f59e0b"/>
+    <rect x="660" y="178" width="180" height="68" rx="16" fill="#a855f7"/>
+    <rect x="880" y="178" width="160" height="68" rx="16" fill="#ef4444"/>
+    <rect x="1080" y="178" width="180" height="68" rx="16" fill="#14b8a6"/>
+  </g>
+  <g stroke="#fff7ed" stroke-width="4" stroke-linecap="round">
+    <path d="M210 212h20"/>
+    <path d="M420 212h20"/>
+    <path d="M620 212h20"/>
+    <path d="M840 212h20"/>
+    <path d="M1040 212h20"/>
+    <path d="M226 198l16 14-16 14" fill="none"/>
+    <path d="M436 198l16 14-16 14" fill="none"/>
+    <path d="M636 198l16 14-16 14" fill="none"/>
+    <path d="M856 198l16 14-16 14" fill="none"/>
+    <path d="M1056 198l16 14-16 14" fill="none"/>
+  </g>
+  <text x="135" y="218" text-anchor="middle">Docs</text>
+  <text x="335" y="218" text-anchor="middle">Embeddings</text>
+  <text x="540" y="218" text-anchor="middle">Vector DB</text>
+  <text x="750" y="218" text-anchor="middle">RAG</text>
+  <text x="960" y="218" text-anchor="middle">Memory</text>
+  <text x="1170" y="218" text-anchor="middle">Knowledge</text>
+</svg>
