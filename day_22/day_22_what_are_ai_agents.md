@@ -1,5 +1,7 @@
 # Day 22 - What are AI Agents?
 
+[Previous: Day 21 - Knowledge Assistant Project](../day_21/day_21_knowledge_assistant_project.md) | [Next: Day 23 - Planning](../day_23/day_23_planning.md)
+
 ## Introduction
 AI agents are systems that use a model to decide actions over time. Instead of answering once and stopping, an agent can plan, use tools, observe results, and continue until a goal is met.
 
@@ -73,6 +75,8 @@ Sketch a research assistant agent that searches notes, summarizes findings, and 
 
 ## Summary
 AI agents coordinate multiple steps toward a goal. Their power comes from planning, tool use, and feedback loops, not from raw text generation alone.
+
+[Previous: Day 21 - Knowledge Assistant Project](../day_21/day_21_knowledge_assistant_project.md) | [Next: Day 23 - Planning](../day_23/day_23_planning.md)
 
 ## Additional Resources
 - https://www.langchain.com/langgraph

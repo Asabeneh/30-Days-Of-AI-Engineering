@@ -1,5 +1,7 @@
 # Day 27 - Evaluation
 
+[Previous: Day 26 - LangChain](../day_26/day_26_langchain.md) | [Next: Day 28 - Guardrails](../day_28/day_28_guardrails.md)
+
 ## Introduction
 Evaluation is how you measure whether an AI system works well. Without evaluation, you are guessing. With evaluation, you can improve the system with evidence.
 
@@ -76,6 +78,8 @@ Build a small evaluation sheet for the knowledge assistant project. Include accu
 
 ## Summary
 Evaluation turns AI development from guesswork into engineering. It helps you improve behavior systematically instead of relying on intuition.
+
+[Previous: Day 26 - LangChain](../day_26/day_26_langchain.md) | [Next: Day 28 - Guardrails](../day_28/day_28_guardrails.md)
 
 ## Additional Resources
 - https://www.evals.ai/

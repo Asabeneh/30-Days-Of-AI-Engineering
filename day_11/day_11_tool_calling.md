@@ -1,5 +1,7 @@
 # Day 11 - Tool Calling
 
+[Previous: Day 10 - Structured Outputs](../day_10/day_10_structured_outputs.md) | [Next: Day 12 - Function Calling](../day_12/day_12_function_calling.md)
+
 ## Introduction
 Tool calling lets the model ask your application to use external capabilities such as search, calculators, calendars, or databases. This is the bridge between language understanding and real-world action.
 
@@ -74,6 +76,8 @@ Design a note assistant that can call a search tool to find matching notes befor
 
 ## Summary
 Tool calling turns an LLM into a coordinator. The model decides when to ask for help, while the application controls what help is available.
+
+[Previous: Day 10 - Structured Outputs](../day_10/day_10_structured_outputs.md) | [Next: Day 12 - Function Calling](../day_12/day_12_function_calling.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs/guides/function-calling

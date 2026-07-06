@@ -1,5 +1,7 @@
 # Day 14 - Mini AI Assistant
 
+[Previous: Day 13 - Streaming Responses](../day_13/day_13_streaming_responses.md) | [Next: Day 15 - Embeddings](../day_15/day_15_embeddings.md)
+
 ## Introduction
 Today you will combine APIs, prompting, and output control into a first assistant project. A mini assistant is a small but complete product that answers a specific user need.
 
@@ -73,6 +75,8 @@ Build a one-page design for a study assistant that can summarize notes, answer q
 
 ## Summary
 A mini assistant is the first moment where multiple AI engineering ideas come together. Scope, prompt design, and control flow matter as much as the model itself.
+
+[Previous: Day 13 - Streaming Responses](../day_13/day_13_streaming_responses.md) | [Next: Day 15 - Embeddings](../day_15/day_15_embeddings.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs

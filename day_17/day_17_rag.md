@@ -1,5 +1,7 @@
 # Day 17 - RAG
 
+[Previous: Day 16 - Vector Databases](../day_16/day_16_vector_databases.md) | [Next: Day 18 - Hybrid Search](../day_18/day_18_hybrid_search.md)
+
 ## Introduction
 Retrieval-Augmented Generation, or RAG, combines search and generation. The app first finds relevant information, then gives that information to the model so the answer is grounded in source material.
 
@@ -72,6 +74,8 @@ Design a RAG assistant for company docs. Include ingestion, retrieval, answer sy
 
 ## Summary
 RAG grounds model answers in external data. It is one of the most practical ways to make AI useful for real knowledge work.
+
+[Previous: Day 16 - Vector Databases](../day_16/day_16_vector_databases.md) | [Next: Day 18 - Hybrid Search](../day_18/day_18_hybrid_search.md)
 
 ## Additional Resources
 - https://python.langchain.com/docs/concepts/rag/

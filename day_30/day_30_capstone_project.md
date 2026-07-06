@@ -1,5 +1,7 @@
 # Day 30 - Capstone Project
 
+[Previous: Day 29 - Deployment](../day_29/day_29_deployment.md)
+
 ## Introduction
 The capstone project is where you bring everything together: prompting, APIs, retrieval, memory, agents, evaluation, guardrails, and deployment.
 
@@ -77,6 +79,8 @@ Build the final project brief. Include users, problem statement, architecture, d
 
 ## Summary
 The capstone proves you can combine AI engineering skills into one product. A strong final project is focused, useful, and well-architected.
+
+[Previous: Day 29 - Deployment](../day_29/day_29_deployment.md)
 
 ## Additional Resources
 - https://www.fastapi.tiangolo.com/

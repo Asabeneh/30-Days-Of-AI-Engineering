@@ -1,5 +1,7 @@
 # Day 24 - Multi-Agent Systems
 
+[Previous: Day 23 - Planning](../day_23/day_23_planning.md) | [Next: Day 25 - Model Context Protocol (MCP)](../day_25/day_25_model_context_protocol_mcp.md)
+
 ## Introduction
 Multi-agent systems use more than one agent to solve a task. Different agents can specialize in research, planning, execution, review, or safety.
 
@@ -68,6 +70,8 @@ Create a three-agent system for a knowledge report: one agent finds sources, one
 
 ## Summary
 Multi-agent systems are powerful when roles are clear and coordination is controlled. More agents are not automatically better.
+
+[Previous: Day 23 - Planning](../day_23/day_23_planning.md) | [Next: Day 25 - Model Context Protocol (MCP)](../day_25/day_25_model_context_protocol_mcp.md)
 
 ## Additional Resources
 - https://www.langchain.com/langgraph

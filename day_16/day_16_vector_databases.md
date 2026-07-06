@@ -1,5 +1,7 @@
 # Day 16 - Vector Databases
 
+[Previous: Day 15 - Embeddings](../day_15/day_15_embeddings.md) | [Next: Day 17 - RAG](../day_17/day_17_rag.md)
+
 ## Introduction
 A vector database stores embeddings and makes it fast to search by meaning. This is the retrieval layer that powers modern knowledge assistants, semantic search, and many RAG systems.
 
@@ -76,6 +78,8 @@ Plan a vector database setup for a study assistant. Include chunk IDs, metadata 
 
 ## Summary
 Vector databases make semantic search practical at scale. They are the storage and retrieval backbone for many retrieval-heavy AI applications.
+
+[Previous: Day 15 - Embeddings](../day_15/day_15_embeddings.md) | [Next: Day 17 - RAG](../day_17/day_17_rag.md)
 
 ## Additional Resources
 - https://www.pinecone.io/learn/

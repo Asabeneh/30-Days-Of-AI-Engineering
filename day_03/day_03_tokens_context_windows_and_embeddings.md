@@ -1,5 +1,7 @@
 # Day 3 - Tokens, Context Windows, and Embeddings
 
+[Previous: Day 2 - How Large Language Models Work](../day_02/day_02_how_large_language_models_work.md) | [Next: Day 4 - Prompt Engineering Fundamentals](../day_04/day_04_prompt_engineering_fundamentals.md)
+
 ## Introduction
 Tokens are the units an LLM reads and writes. The context window is the amount of text the model can consider at one time. Embeddings are numerical representations of meaning. Together, these three ideas explain a lot of the practical limits and strengths of AI systems.
 
@@ -80,6 +82,8 @@ Build a simple semantic note search concept. Write down how a note would be turn
 
 ## Summary
 Tokens affect cost and context size. Context windows limit what the model can see. Embeddings allow meaning-based search and retrieval, which becomes critical in real applications.
+
+[Previous: Day 2 - How Large Language Models Work](../day_02/day_02_how_large_language_models_work.md) | [Next: Day 4 - Prompt Engineering Fundamentals](../day_04/day_04_prompt_engineering_fundamentals.md)
 
 ## Additional Resources
 - https://platform.openai.com/tokenizer

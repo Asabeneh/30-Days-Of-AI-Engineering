@@ -1,5 +1,7 @@
 # Day 15 - Embeddings
 
+[Previous: Day 14 - Mini AI Assistant](../day_14/day_14_mini_ai_assistant.md) | [Next: Day 16 - Vector Databases](../day_16/day_16_vector_databases.md)
+
 ## Introduction
 Embeddings convert text or other content into vectors that capture meaning. They are one of the most important tools in modern AI applications because they power search, clustering, and retrieval.
 
@@ -72,6 +74,8 @@ Design an embedding pipeline for study notes. Include ingestion, chunking, vecto
 
 ## Summary
 Embeddings turn meaning into numbers. That allows AI systems to search by similarity instead of only by exact words.
+
+[Previous: Day 14 - Mini AI Assistant](../day_14/day_14_mini_ai_assistant.md) | [Next: Day 16 - Vector Databases](../day_16/day_16_vector_databases.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs/guides/embeddings

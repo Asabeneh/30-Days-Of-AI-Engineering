@@ -1,5 +1,7 @@
 # Day 6 - LLM APIs
 
+[Previous: Day 5 - Advanced Prompt Engineering](../day_05/day_05_advanced_prompt_engineering.md) | [Next: Day 7 - Mini Project: Prompt Helper](../day_07/day_07_mini_project_prompt_helper.md)
+
 ## Introduction
 An LLM API is the bridge between your app and a hosted model. Instead of training your own model, you send a request, receive a response, and build product logic around that exchange. This is the point where prompt design becomes software design.
 
@@ -91,6 +93,8 @@ Write the request spec for a text assistant that answers in three bullet points 
 
 ## Summary
 LLM APIs turn model capability into a programmable service. Good API use depends on clear requests, predictable output settings, and reliable app-side handling.
+
+[Previous: Day 5 - Advanced Prompt Engineering](../day_05/day_05_advanced_prompt_engineering.md) | [Next: Day 7 - Mini Project: Prompt Helper](../day_07/day_07_mini_project_prompt_helper.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs

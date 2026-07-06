@@ -1,5 +1,7 @@
 # Day 8 - OpenAI API
 
+[Previous: Day 7 - Mini Project: Prompt Helper](../day_07/day_07_mini_project_prompt_helper.md) | [Next: Day 9 - Claude API](../day_09/day_09_claude_api.md)
+
 ## Introduction
 The OpenAI API gives you access to hosted models through a simple request and response pattern. For many AI products, this is the fastest path from an idea to a working prototype.
 
@@ -82,6 +84,8 @@ Create a design for a short-answer API client that submits a prompt and displays
 
 ## Summary
 The OpenAI API is a practical example of LLM integration. The important lesson is not the endpoint itself, but the app discipline around requests, keys, output checks, and costs.
+
+[Previous: Day 7 - Mini Project: Prompt Helper](../day_07/day_07_mini_project_prompt_helper.md) | [Next: Day 9 - Claude API](../day_09/day_09_claude_api.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs

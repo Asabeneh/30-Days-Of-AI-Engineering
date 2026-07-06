@@ -1,5 +1,7 @@
 # Day 5 - Advanced Prompt Engineering
 
+[Previous: Day 4 - Prompt Engineering Fundamentals](../day_04/day_04_prompt_engineering_fundamentals.md) | [Next: Day 6 - LLM APIs](../day_06/day_06_llm_apis.md)
+
 ## Introduction
 Advanced prompt engineering is about designing prompts that work reliably across different inputs, tasks, and failure cases. The goal is not only a good demo, but consistent behavior.
 
@@ -92,6 +94,8 @@ Build a reusable prompt template for turning meeting notes into action items, ow
 
 ## Summary
 Advanced prompting is about consistency, not cleverness. Examples, rubrics, and clear boundaries make prompts more dependable in real-world use.
+
+[Previous: Day 4 - Prompt Engineering Fundamentals](../day_04/day_04_prompt_engineering_fundamentals.md) | [Next: Day 6 - LLM APIs](../day_06/day_06_llm_apis.md)
 
 ## Additional Resources
 - https://www.promptingguide.ai/techniques/fewshot

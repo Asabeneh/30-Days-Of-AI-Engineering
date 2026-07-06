@@ -1,5 +1,7 @@
 # Day 18 - Hybrid Search
 
+[Previous: Day 17 - RAG](../day_17/day_17_rag.md) | [Next: Day 19 - Memory](../day_19/day_19_memory.md)
+
 ## Introduction
 Hybrid search combines keyword search with vector search. This approach is useful because exact words and semantic meaning both matter in real retrieval systems.
 
@@ -71,6 +73,8 @@ Plan a hybrid search system for product documentation. Include exact keyword mat
 
 ## Summary
 Hybrid search is practical because users search in different ways. Combining signals usually produces better results than relying on a single retrieval method.
+
+[Previous: Day 17 - RAG](../day_17/day_17_rag.md) | [Next: Day 19 - Memory](../day_19/day_19_memory.md)
 
 ## Additional Resources
 - https://www.elastic.co/what-is/hybrid-search

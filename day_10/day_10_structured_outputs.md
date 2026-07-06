@@ -1,5 +1,7 @@
 # Day 10 - Structured Outputs
 
+[Previous: Day 9 - Claude API](../day_09/day_09_claude_api.md) | [Next: Day 11 - Tool Calling](../day_11/day_11_tool_calling.md)
+
 ## Introduction
 Structured outputs make the model return data in a predictable format such as JSON, tables, or schema-based objects. This is essential when an AI app needs to feed its output into code.
 
@@ -79,6 +81,8 @@ Create a schema for turning a paragraph into title, summary, sentiment, and keyw
 
 ## Summary
 Structured outputs turn model answers into reliable application data. When downstream code depends on the response, structure is a requirement, not a nice-to-have.
+
+[Previous: Day 9 - Claude API](../day_09/day_09_claude_api.md) | [Next: Day 11 - Tool Calling](../day_11/day_11_tool_calling.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs/guides/structured-outputs

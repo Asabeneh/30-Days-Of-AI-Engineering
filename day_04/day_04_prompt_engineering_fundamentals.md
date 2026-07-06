@@ -1,5 +1,7 @@
 # Day 4 - Prompt Engineering Fundamentals
 
+[Previous: Day 3 - Tokens, Context Windows, and Embeddings](../day_03/day_03_tokens_context_windows_and_embeddings.md) | [Next: Day 5 - Advanced Prompt Engineering](../day_05/day_05_advanced_prompt_engineering.md)
+
 ## Introduction
 Prompt engineering is the skill of writing instructions and context so an LLM produces better results. It is less about tricks and more about clarity, structure, and controlling the task.
 
@@ -84,6 +86,8 @@ Write a prompt for an AI note helper that rewrites messy notes into clean study 
 
 ## Summary
 Prompt engineering is about making the model's job easier. Clarity, examples, and constraints usually produce better results than clever wording.
+
+[Previous: Day 3 - Tokens, Context Windows, and Embeddings](../day_03/day_03_tokens_context_windows_and_embeddings.md) | [Next: Day 5 - Advanced Prompt Engineering](../day_05/day_05_advanced_prompt_engineering.md)
 
 ## Additional Resources
 - https://www.promptingguide.ai/

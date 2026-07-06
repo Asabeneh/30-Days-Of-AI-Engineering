@@ -1,5 +1,7 @@
 # Day 29 - Deployment
 
+[Previous: Day 28 - Guardrails](../day_28/day_28_guardrails.md) | [Next: Day 30 - Capstone Project](../day_30/day_30_capstone_project.md)
+
 ## Introduction
 Deployment is the step where your AI app becomes available to real users. Shipping an AI product means handling environment variables, scaling, observability, and reliability.
 
@@ -70,6 +72,8 @@ Write a deployment plan for the knowledge assistant, including build, secrets, l
 
 ## Summary
 Deployment turns an AI project into a product. The work does not end when the model responds correctly; it ends when users can depend on the system.
+
+[Previous: Day 28 - Guardrails](../day_28/day_28_guardrails.md) | [Next: Day 30 - Capstone Project](../day_30/day_30_capstone_project.md)
 
 ## Additional Resources
 - https://docs.docker.com/

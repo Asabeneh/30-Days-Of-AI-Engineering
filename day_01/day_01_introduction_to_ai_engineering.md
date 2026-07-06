@@ -1,5 +1,7 @@
 # Day 1 - Introduction to AI Engineering
 
+[Next: Day 2 - How Large Language Models Work](../day_02/day_02_how_large_language_models_work.md)
+
 ## Introduction
 AI engineering is the practice of building software that uses AI models in reliable, useful, and testable ways. A good AI engineer does not only call a model API. They design prompts, control data flow, manage cost, add memory or retrieval when needed, and ship an experience that works for real users.
 
@@ -111,6 +113,8 @@ Create a one-page concept for an AI study buddy. Include the user problem, the m
 
 ## Summary
 AI engineering is about turning model capability into useful products. The main job is not only generating text, but shaping the whole system around the model so it behaves well in the real world.
+
+[Next: Day 2 - How Large Language Models Work](../day_02/day_02_how_large_language_models_work.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs

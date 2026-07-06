@@ -1,5 +1,7 @@
 # Day 25 - Model Context Protocol (MCP)
 
+[Previous: Day 24 - Multi-Agent Systems](../day_24/day_24_multi_agent_systems.md) | [Next: Day 26 - LangChain](../day_26/day_26_langchain.md)
+
 ## Introduction
 MCP is a standard for connecting AI apps to tools and data sources in a structured way. It helps separate the model from the details of each integration.
 
@@ -72,6 +74,8 @@ Outline an MCP server that exposes note search and note retrieval for a knowledg
 
 ## Summary
 MCP standardizes how assistants connect to tools and data. It helps make AI systems more modular, reusable, and easier to integrate.
+
+[Previous: Day 24 - Multi-Agent Systems](../day_24/day_24_multi_agent_systems.md) | [Next: Day 26 - LangChain](../day_26/day_26_langchain.md)
 
 ## Additional Resources
 - https://modelcontextprotocol.io/

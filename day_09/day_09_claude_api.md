@@ -1,5 +1,7 @@
 # Day 9 - Claude API
 
+[Previous: Day 8 - OpenAI API](../day_08/day_08_openai_api.md) | [Next: Day 10 - Structured Outputs](../day_10/day_10_structured_outputs.md)
+
 ## Introduction
 Claude is another powerful model family used through an API. Studying a second provider helps you see which design ideas are universal and which are vendor-specific.
 
@@ -71,6 +73,8 @@ Create a provider comparison sheet for a summarizer app. Include quality, speed,
 
 ## Summary
 Provider APIs look different on the surface, but the engineering questions remain the same. Good abstractions make it easier to compare and switch models later.
+
+[Previous: Day 8 - OpenAI API](../day_08/day_08_openai_api.md) | [Next: Day 10 - Structured Outputs](../day_10/day_10_structured_outputs.md)
 
 ## Additional Resources
 - https://docs.anthropic.com/

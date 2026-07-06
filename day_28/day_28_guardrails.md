@@ -1,5 +1,7 @@
 # Day 28 - Guardrails
 
+[Previous: Day 27 - Evaluation](../day_27/day_27_evaluation.md) | [Next: Day 29 - Deployment](../day_29/day_29_deployment.md)
+
 ## Introduction
 Guardrails are the rules and checks that keep AI systems safe, reliable, and aligned with product requirements. They help prevent bad outputs, unsafe actions, and confusing behavior.
 
@@ -70,6 +72,8 @@ Design guardrails for a support assistant that must not leak private information
 
 ## Summary
 Guardrails protect users and systems. They work best when they are layered, specific, and tested against realistic misuse.
+
+[Previous: Day 27 - Evaluation](../day_27/day_27_evaluation.md) | [Next: Day 29 - Deployment](../day_29/day_29_deployment.md)
 
 ## Additional Resources
 - https://www.nist.gov/itl/ai-risk-management-framework

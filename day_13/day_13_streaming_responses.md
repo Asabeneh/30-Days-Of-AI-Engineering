@@ -1,5 +1,7 @@
 # Day 13 - Streaming Responses
 
+[Previous: Day 12 - Function Calling](../day_12/day_12_function_calling.md) | [Next: Day 14 - Mini AI Assistant](../day_14/day_14_mini_ai_assistant.md)
+
 ## Introduction
 Streaming lets the model send output token by token instead of waiting for the entire answer. This makes AI apps feel faster, more interactive, and more natural.
 
@@ -71,6 +73,8 @@ Plan a chat interface that prints assistant text as it arrives and supports stop
 
 ## Summary
 Streaming makes AI experiences feel responsive. It is mainly a delivery improvement, but it changes how you design UI state and error handling.
+
+[Previous: Day 12 - Function Calling](../day_12/day_12_function_calling.md) | [Next: Day 14 - Mini AI Assistant](../day_14/day_14_mini_ai_assistant.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs/guides/streaming

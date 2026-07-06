@@ -1,5 +1,7 @@
 # Day 26 - LangChain
 
+[Previous: Day 25 - Model Context Protocol (MCP)](../day_25/day_25_model_context_protocol_mcp.md) | [Next: Day 27 - Evaluation](../day_27/day_27_evaluation.md)
+
 ## Introduction
 LangChain is a framework for building LLM applications with prompts, tools, retrieval, and agent workflows. It helps organize common AI app patterns without hiding the underlying engineering.
 
@@ -66,6 +68,8 @@ Sketch a LangChain-based note assistant with prompt setup, retrieval, and respon
 
 ## Summary
 LangChain can speed up AI app development, but good engineering still means keeping workflows clear, testable, and modular.
+
+[Previous: Day 25 - Model Context Protocol (MCP)](../day_25/day_25_model_context_protocol_mcp.md) | [Next: Day 27 - Evaluation](../day_27/day_27_evaluation.md)
 
 ## Additional Resources
 - https://python.langchain.com/docs/

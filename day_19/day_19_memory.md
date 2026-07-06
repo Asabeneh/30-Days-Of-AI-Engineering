@@ -1,5 +1,7 @@
 # Day 19 - Memory
 
+[Previous: Day 18 - Hybrid Search](../day_18/day_18_hybrid_search.md) | [Next: Day 20 - Long-Term Memory](../day_20/day_20_long_term_memory.md)
+
 ## Introduction
 Memory lets an AI system keep useful information across turns or sessions. It is what makes an assistant feel less forgetful and more personalized.
 
@@ -75,6 +77,8 @@ Create a memory policy for a learning assistant. Decide what it remembers, what 
 
 ## Summary
 Memory improves continuity, but it must be intentional. A strong memory system balances usefulness, control, and privacy.
+
+[Previous: Day 18 - Hybrid Search](../day_18/day_18_hybrid_search.md) | [Next: Day 20 - Long-Term Memory](../day_20/day_20_long_term_memory.md)
 
 ## Additional Resources
 - https://www.langchain.com/langgraph

@@ -1,5 +1,7 @@
 # Day 2 - How Large Language Models Work
 
+[Previous: Day 1 - Introduction to AI Engineering](../day_01/day_01_introduction_to_ai_engineering.md) | [Next: Day 3 - Tokens, Context Windows, and Embeddings](../day_03/day_03_tokens_context_windows_and_embeddings.md)
+
 ## Introduction
 Large language models are systems trained to predict the next token in a sequence. That simple training objective leads to surprisingly powerful behavior: writing, reasoning, summarizing, translating, and tool use. To build good AI applications, you need to understand the basic mechanics behind that behavior.
 
@@ -73,6 +75,8 @@ Write a short teaching prompt that asks an LLM to explain the same concept to a 
 
 ## Summary
 LLMs are probabilistic sequence models. They are powerful because they learn language patterns at scale, but they are not guaranteed to be correct or up to date unless you design the application around them.
+
+[Previous: Day 1 - Introduction to AI Engineering](../day_01/day_01_introduction_to_ai_engineering.md) | [Next: Day 3 - Tokens, Context Windows, and Embeddings](../day_03/day_03_tokens_context_windows_and_embeddings.md)
 
 ## Additional Resources
 - https://arxiv.org/abs/1706.03762

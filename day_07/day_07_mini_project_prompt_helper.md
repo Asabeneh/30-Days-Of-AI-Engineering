@@ -1,5 +1,7 @@
 # Day 7 - Mini Project: Prompt Helper
 
+[Previous: Day 6 - LLM APIs](../day_06/day_06_llm_apis.md) | [Next: Day 8 - OpenAI API](../day_08/day_08_openai_api.md)
+
 ## Introduction
 Today you will combine the first week into one small but useful project. The goal is to design a prompt helper that rewrites vague requests into clear prompts.
 
@@ -81,6 +83,8 @@ Build a prompt helper specification with input, questions, output, and acceptanc
 
 ## Summary
 Mini projects help you connect concepts into a working system. A small, polished project is more valuable than a large unfinished one.
+
+[Previous: Day 6 - LLM APIs](../day_06/day_06_llm_apis.md) | [Next: Day 8 - OpenAI API](../day_08/day_08_openai_api.md)
 
 ## Additional Resources
 - https://www.promptingguide.ai/

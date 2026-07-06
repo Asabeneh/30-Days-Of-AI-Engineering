@@ -1,5 +1,7 @@
 # Day 12 - Function Calling
 
+[Previous: Day 11 - Tool Calling](../day_11/day_11_tool_calling.md) | [Next: Day 13 - Streaming Responses](../day_13/day_13_streaming_responses.md)
+
 ## Introduction
 Function calling is a structured way for the model to select a named function with arguments instead of producing only natural language. It is especially useful when the app needs exact actions.
 
@@ -74,6 +76,8 @@ Create a function-calling design for a support assistant that can fetch ticket s
 
 ## Summary
 Function calling makes model action explicit and controlled. The application keeps authority over execution while the model supplies intent and arguments.
+
+[Previous: Day 11 - Tool Calling](../day_11/day_11_tool_calling.md) | [Next: Day 13 - Streaming Responses](../day_13/day_13_streaming_responses.md)
 
 ## Additional Resources
 - https://platform.openai.com/docs/guides/function-calling

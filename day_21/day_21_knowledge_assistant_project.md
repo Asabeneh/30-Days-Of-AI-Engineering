@@ -1,5 +1,7 @@
 # Day 21 - Knowledge Assistant Project
 
+[Previous: Day 20 - Long-Term Memory](../day_20/day_20_long_term_memory.md) | [Next: Day 22 - What are AI Agents?](../day_22/day_22_what_are_ai_agents.md)
+
 ## Introduction
 This project ties together embeddings, vector search, RAG, and memory. The goal is to build a knowledge assistant that can answer questions from a custom document set.
 
@@ -75,6 +77,8 @@ Design a knowledge assistant for this repository. It should answer curriculum qu
 
 ## Summary
 The knowledge assistant project combines the core retrieval ideas into one practical application. It is a strong checkpoint before moving into agents.
+
+[Previous: Day 20 - Long-Term Memory](../day_20/day_20_long_term_memory.md) | [Next: Day 22 - What are AI Agents?](../day_22/day_22_what_are_ai_agents.md)
 
 ## Additional Resources
 - https://python.langchain.com/docs/concepts/rag/

@@ -1,5 +1,7 @@
 # Day 23 - Planning
 
+[Previous: Day 22 - What are AI Agents?](../day_22/day_22_what_are_ai_agents.md) | [Next: Day 24 - Multi-Agent Systems](../day_24/day_24_multi_agent_systems.md)
+
 ## Introduction
 Planning is the process of turning a goal into smaller steps. In agent systems, planning helps the model decide what to do first, what to check next, and when to stop.
 
@@ -71,6 +73,8 @@ Design a planning layer for a travel assistant that gathers constraints before m
 
 ## Summary
 Planning gives agents structure. The best plans are simple, revisable, and tightly connected to the current goal.
+
+[Previous: Day 22 - What are AI Agents?](../day_22/day_22_what_are_ai_agents.md) | [Next: Day 24 - Multi-Agent Systems](../day_24/day_24_multi_agent_systems.md)
 
 ## Additional Resources
 - https://www.langchain.com/langgraph

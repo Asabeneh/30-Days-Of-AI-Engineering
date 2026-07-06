@@ -1,5 +1,7 @@
 # Day 20 - Long-Term Memory
 
+[Previous: Day 19 - Memory](../day_19/day_19_memory.md) | [Next: Day 21 - Knowledge Assistant Project](../day_21/day_21_knowledge_assistant_project.md)
+
 ## Introduction
 Long-term memory stores useful information across many sessions so the assistant can behave more consistently over time. The challenge is not only saving memory, but deciding what should persist.
 
@@ -74,6 +76,8 @@ Design a long-term memory system for a tutoring assistant. Include memory creati
 
 ## Summary
 Long-term memory makes assistants feel persistent, but persistence only helps when the stored information is accurate, useful, and user-controlled.
+
+[Previous: Day 19 - Memory](../day_19/day_19_memory.md) | [Next: Day 21 - Knowledge Assistant Project](../day_21/day_21_knowledge_assistant_project.md)
 
 ## Additional Resources
 - https://mem0.ai/
