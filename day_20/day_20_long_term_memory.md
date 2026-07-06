@@ -13,6 +13,8 @@ But persistence is not free. If you store the wrong things, memory becomes stale
 
 This chapter explains how long-term memory works, how it differs from session memory, how memory is promoted and refreshed, and how to design a lifecycle that supports helpful personalization without overreach.
 
+For **StudySpark**, long-term memory is the layer that remembers a learner's preferred answer style, which week they are working through, and which capstone components they have completed — without confusing those personal facts with the curriculum content that RAG retrieves from lesson files. Day 21 will combine both layers into the Week 3 checkpoint project.
+
 ## Learning Objectives
 By the end of this day, you should be able to:
 
@@ -23,6 +25,26 @@ By the end of this day, you should be able to:
 - think about personalization without crossing privacy boundaries
 - plan a long-term memory system for a real assistant
 - identify the tradeoffs between convenience, accuracy, and control
+- connect long-term memory design to the StudySpark capstone in `projects/studyspark/`
+
+## How to Use This Lesson
+
+This lesson is designed for **all skill levels**. Pick one path and follow it consistently.
+
+| Level | Suggested approach | Time |
+| --- | --- | --- |
+| **Beginner** | Read Introduction → Big Picture → Deep Theory → trace one code example → Easy exercises | 5–7 hours |
+| **Intermediate** | Skim objectives → Visual Learning → Code Walkthrough → Medium/Hard exercises → Mini project | 3–5 hours |
+| **Advanced** | Deep Theory tradeoffs → Hard/Challenge exercises → extend mini project → capstone slice | 2–4 hours |
+
+### Apply Today
+Complete at least one item before moving to the next day:
+- [ ] Trace one code example in **Python or TypeScript** (one language is enough)
+- [ ] Complete exercises for your level (see Exercises section)
+- [ ] Update [`projects/CAPSTONE.md`](../../projects/CAPSTONE.md) with today's capstone item
+- [ ] Update the retrieval or memory section in `projects/CAPSTONE.md`.
+
+> **Stuck?** Re-read Big Picture, review Prerequisites, or see [SYLLABUS.md](../../SYLLABUS.md) for path guidance.
 
 ## Prerequisites
 You should already understand:
@@ -35,7 +57,7 @@ You should already understand:
 If those lessons are fuzzy, review them first. Long-term memory uses the same retrieval ideas as RAG, but the rules are stricter because the data lives longer.
 
 ## Big Picture
-Long-term memory sits above session state and below the assistant’s future behavior.
+Long-term memory sits above session state and below the assistant's future behavior.
 
 ```mermaid
 flowchart LR
@@ -55,6 +77,16 @@ The important design questions are:
 
 Long-term memory is not just storage. It is a controlled lifecycle.
 
+In StudySpark, the split looks like this:
+
+| Layer | What it holds | Example |
+| --- | --- | --- |
+| Session memory | Current chat turns | "Explain RAG again with a diagram." |
+| Long-term memory | Stable learner context | "Prefers Python examples and concise answers." |
+| RAG corpus | Curriculum source of truth | Day 17 lesson on retrieval-augmented generation |
+
+The assistant should never treat a memory item as curriculum evidence. Memory personalizes; RAG grounds.
+
 ## Why Long-Term Memory Exists
 Long-term memory exists because some information remains useful across time.
 
@@ -70,6 +102,14 @@ Examples include:
 Without long-term memory, the assistant keeps asking the same questions and loses continuity between sessions.
 
 Imagine a tutoring assistant that remembers the student prefers concise explanations, is learning AI engineering, and is currently working on a knowledge assistant project. That memory makes the future interaction more helpful from the first sentence.
+
+For StudySpark learners, long-term memory might remember:
+
+- "I am on Week 3 and building the repo knowledge assistant."
+- "Show TypeScript when both languages appear."
+- "I finished Days 15–19 but not Day 20 yet."
+
+Those facts improve continuity without replacing lesson retrieval.
 
 ## Historical Background
 Early assistants used only short conversation windows. Later, teams added summaries and session buffers. Then persistent memory systems emerged because users wanted continuity across days and weeks.
@@ -92,6 +132,8 @@ timeline
     2024+ : Policy-driven long-term memory with user controls
 ```
 
+Products such as ChatGPT memory, Mem0, and LangGraph checkpointing all reflect the same user demand: assistants should remember helpful context, but users must stay in control.
+
 ## Deep Theory
 
 ### What is long-term memory?
@@ -111,6 +153,38 @@ Long-term memory is durable. It supports continuity after the session ends.
 | Risk of staleness | Lower | Higher |
 | User expectation | Temporary context | Persistent continuity |
 | Control needs | Basic | Strong review, delete, and refresh support |
+| Storage cost | Low per session | Grows without pruning |
+| Retrieval scope | Recent turns only | Filtered by relevance and category |
+
+### Memory categories
+Most production systems separate memory into categories so policies can differ:
+
+| Category | Examples | Typical TTL | Promotion bar |
+| --- | --- | --- | --- |
+| Preference | tone, language, format | Long or none | Low if user-stated |
+| Project | current capstone slice, stack choice | Medium | Medium |
+| Summary | key decisions from a session | Medium | Higher |
+| Fact | user-approved stable info | Long | High |
+| Task state | unfinished workflow step | Short to medium | Medium |
+
+```mermaid
+mindmap
+  root((Long-Term Memory))
+    Preferences
+      tone
+      format
+      language
+    Projects
+      current goal
+      stack choice
+      deadlines
+    Stable facts
+      user-approved
+      recurring context
+    Summaries
+      key decisions
+      session outcomes
+```
 
 ### Memory lifecycle
 Good long-term memory systems usually follow a lifecycle:
@@ -152,6 +226,41 @@ Bad candidates are usually:
 - already obvious from context
 - likely to become stale quickly
 
+A practical promotion checklist:
+
+| Question | If yes | If no |
+| --- | --- | --- |
+| Will this matter in a future session? | Continue | Keep session-only |
+| Is it stable for at least a week? | Continue | Keep session-only |
+| Did the user ask to remember it? | Strong candidate | Ask or skip |
+| Could it harm privacy if stored? | Block | Continue |
+| Does RAG already cover it? | Usually skip | Consider store |
+
+### Consent and user control
+Long-term memory should feel helpful, not surprising.
+
+Good patterns:
+
+- explicit commands: "Remember that I prefer short answers."
+- confirmation for inferred facts: "Should I remember that you are building StudySpark?"
+- a review screen listing stored memories
+- one-click delete per item or category
+- export for transparency
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as App
+    participant P as Promotion policy
+    participant M as Memory store
+
+    U->>A: Share information
+    A->>P: Evaluate memory candidate
+    P-->>A: Promote or ignore
+    A->>M: Save approved long-term memory
+    M-->>A: Memory available in later sessions
+```
+
 ### Decay and refresh rules
 Long-term memory needs decay because some facts become outdated.
 
@@ -164,6 +273,36 @@ For example:
 
 Good systems either expire such memories or ask the user to confirm them again.
 
+| Strategy | When to use | Tradeoff |
+| --- | --- | --- |
+| Hard expiry | Temporary project notes | May delete still-useful facts |
+| Soft decay | Preferences with drift risk | Needs refresh prompts |
+| User confirmation | High-impact facts | More friction, higher trust |
+| Versioned update | Changing project context | More storage, better accuracy |
+
+```mermaid
+flowchart LR
+    A[Memory item] --> B{Past expiresAt?}
+    B -->|Yes| C[Remove from reads]
+    B -->|No| D{Confidence low?}
+    D -->|Yes| E[Ask user to confirm]
+    D -->|No| F[Use in prompt]
+```
+
+### Conflict resolution
+Sometimes new session data contradicts old memory.
+
+Example: the user once preferred detailed answers, then says "keep it short from now on."
+
+Resolution options:
+
+1. **Latest wins** for preferences when user is explicit
+2. **Higher confidence wins** for inferred facts
+3. **Ask the user** when confidence is similar
+4. **Keep both with timestamps** for audit, use newest at read time
+
+Never silently keep contradictory preferences without a rule.
+
 ### Memory retrieval
 Long-term memory is useful only if the system can find and use it correctly.
 
@@ -175,6 +314,29 @@ Common retrieval strategies include:
 - recency-aware ranking
 
 Memory retrieval should be narrow. You do not want every old memory in every prompt. The system should retrieve only what is relevant to the current interaction.
+
+```mermaid
+graph TB
+    UI[Chat UI] --> ORCH[Session orchestrator]
+    ORCH --> EXTRACT[Memory extractor]
+    EXTRACT --> POLICY[Promotion policy]
+    POLICY --> STORE[Persistent memory store]
+    STORE --> RETR[Memory retriever]
+    RETR --> PROMPT[Prompt builder]
+    PROMPT --> LLM[LLM]
+```
+
+### Long-term memory vs RAG
+This distinction matters for StudySpark and for Day 21:
+
+| Question | Long-term memory | RAG |
+| --- | --- | --- |
+| What is the source? | User sessions and approved facts | Lesson files and notes |
+| Can it change without user action? | Sometimes via inference | Changes when corpus is re-ingested |
+| Should it be cited? | No — it is context, not evidence | Yes — always cite lesson sources |
+| What if it is wrong? | User corrects or deletes | Re-embed or fix corpus |
+
+Rule for the capstone: **memory complements RAG but does not replace citations.**
 
 ### Advantages
 - improves continuity across sessions
@@ -212,6 +374,21 @@ Do not use long-term memory when:
 - the system cannot explain how memory is used
 - the memory would not improve future help
 - the memory is likely to become misleading soon
+
+### Production patterns worth knowing
+Teams shipping long-term memory usually pick one of three patterns:
+
+| Pattern | How it works | Best for |
+| --- | --- | --- |
+| Profile store | Fixed user settings updated explicitly | Simple apps, clear consent |
+| Memory graph | Linked facts with categories and expiry | Assistants with rich context |
+| Retrieval-backed memory | Embeddings over memory items | Large memory stores |
+
+StudySpark can start with a **profile store** for preferences and a small **project memory** list, then add semantic memory search only if the store grows large enough to need it.
+
+Another production habit: **write on explicit signal, read on relevance**. Do not promote every inferred fact automatically. Let the user say "remember this" for high-impact items, and use inference only for low-risk preferences such as answer length when stated clearly in conversation.
+
+Finally, treat memory updates like database migrations: log the old value, the new value, and the reason for change. When a learner says "I switched from Python to TypeScript," you want an audit trail—not a silent overwrite that makes debugging impossible.
 
 ## Visual Learning
 
@@ -254,24 +431,29 @@ flowchart TD
     E -->|Yes| G[Store with freshness metadata]
 ```
 
-### Memory Categories Map
+### StudySpark Memory + RAG Split
 ```mermaid
-mindmap
-  root((Long-Term Memory))
-    Preferences
-      tone
-      format
-      language
-    Projects
-      current goal
-      stack choice
-      deadlines
-    Stable facts
-      user-approved
-      recurring context
-    Summaries
-      key decisions
-      session outcomes
+flowchart TD
+    Q[User question] --> MEM[Long-term memory read]
+    Q --> RAG[RAG retrieval over lessons]
+    MEM --> PB[Prompt builder]
+    RAG --> PB
+    PB --> LLM[LLM answer]
+    LLM --> OUT[Answer + lesson citations]
+```
+
+### Read Policy Flow
+```mermaid
+flowchart TD
+    A[Incoming question] --> B[Classify topic]
+    B --> C[Fetch preference memories]
+    B --> D[Fetch project memories]
+    C --> E{Relevant to tone or format?}
+    D --> F{Relevant to current task?}
+    E -->|Yes| G[Include in prompt]
+    E -->|No| H[Skip]
+    F -->|Yes| G
+    F -->|No| H
 ```
 
 ## Code Walkthrough
@@ -370,7 +552,7 @@ print(build_prompt("Help me plan today.", memory_items))
 #### Code Explanation
 - `build_prompt` inserts only selected memory items.
 - the prompt tells the model memory is supportive, not authoritative.
-- this keeps memory from overwhelming the user’s actual question.
+- this keeps memory from overwhelming the user's actual question.
 
 ### TypeScript Example: Refresh expired memory
 ```typescript
@@ -422,10 +604,78 @@ print(cleanup_memory(store, 2026))
 - `expires_year` is a simple freshness rule.
 - pruning keeps the memory store from growing without control.
 
+### Python Example: Resolve conflicting preferences
+```python
+def merge_preference(existing, incoming):
+    if incoming.get("explicit") or incoming["confidence"] >= existing["confidence"]:
+        return {**existing, **incoming, "updated_at": incoming["created_at"]}
+    return existing
+
+
+old = {"content": "Prefers detailed answers.", "confidence": 0.6, "created_at": "2026-01-01"}
+new = {"content": "Prefers concise answers.", "confidence": 0.95, "explicit": True, "created_at": "2026-03-01"}
+
+print(merge_preference(old, new))
+```
+
+#### Code Explanation
+- explicit user statements should override older inferred preferences
+- `confidence` breaks ties when both items are inferred
+- `updated_at` preserves auditability
+
+### TypeScript Example: Category-scoped memory read
+```typescript
+type MemoryItem = {
+  category: 'preference' | 'project' | 'summary';
+  content: string;
+};
+
+function readMemoryForQuestion(items: MemoryItem[], question: string): MemoryItem[] {
+  const lower = question.toLowerCase();
+
+  if (lower.includes('style') || lower.includes('short') || lower.includes('detail')) {
+    return items.filter((item) => item.category === 'preference');
+  }
+
+  if (lower.includes('project') || lower.includes('capstone') || lower.includes('studyspark')) {
+    return items.filter((item) => item.category === 'project');
+  }
+
+  return [];
+}
+```
+
+#### Code Explanation
+- narrow reads prevent unrelated memories from entering the prompt
+- category routing is a simple alternative to semantic memory search
+- StudySpark project questions should fetch project memory, not every old summary
+
+### Python Example: User deletion endpoint sketch
+```python
+def delete_memory(store, user_id, memory_id):
+    return [
+        item for item in store
+        if not (item["user_id"] == user_id and item["id"] == memory_id)
+    ]
+
+
+store = [
+    {"id": "m1", "user_id": "u1", "content": "Prefers Python."},
+    {"id": "m2", "user_id": "u1", "content": "On Week 3."},
+]
+
+print(delete_memory(store, "u1", "m1"))
+```
+
+#### Code Explanation
+- deletion must be scoped by `user_id`
+- the store returns a new list in this simple example; production systems would persist the change
+- users need a visible path to remove incorrect memories quickly
+
 ## Practical Examples
 
 ### Beginner Example: Remembering answer style
-A user says, “Please keep your answers short.”
+A user says, "Please keep your answers short."
 
 That preference is a good long-term memory candidate because it is stable, useful, and safe to keep.
 
@@ -445,8 +695,21 @@ What could go wrong:
 - the learner may later switch projects
 - the assistant may overfit its suggestions to an old context
 
+Mitigation: store project memory with a medium TTL and refresh when the user mentions a new goal.
+
+### Advanced Example: StudySpark capstone continuity
+A learner returns after a week and asks, "What should I build next in StudySpark?"
+
+Long-term memory recalls:
+
+- they finished hybrid search but not long-term memory storage
+- they prefer Python
+- they want concise implementation steps
+
+RAG retrieves Day 20 and Day 21 lessons for factual guidance. Memory shapes how the answer is delivered.
+
 ### Professional Example: Sales or support workflow memory
-A support assistant remembers a customer’s plan type, current issue, and preferred contact method.
+A support assistant remembers a customer's plan type, current issue, and preferred contact method.
 
 This helps the assistant avoid asking the same onboarding questions repeatedly and makes the workflow smoother.
 
@@ -471,6 +734,8 @@ The important point is that long-term memory must be scoped carefully. A CRM too
 - use confidence or freshness scores
 - keep read and write policies explicit
 - log why memory was created and when it changes
+- never mix memory content with RAG evidence in citations
+- test deletion and refresh paths, not only creation
 
 ## Common Mistakes
 - over-personalizing too early
@@ -480,6 +745,8 @@ The important point is that long-term memory must be scoped carefully. A CRM too
 - confusing preference memory with factual memory
 - forgetting to prune expired data
 - reading too much memory into every prompt
+- citing memory as if it were lesson source material
+- storing curriculum facts in memory instead of indexing them with RAG
 
 ### Debugging Strategy
 When long-term memory feels wrong, inspect it in this order:
@@ -489,6 +756,7 @@ When long-term memory feels wrong, inspect it in this order:
 3. Is the memory stale or expired?
 4. Is the retrieval scope too broad?
 5. Is the prompt overusing memory instead of using it carefully?
+6. Did RAG and memory get mixed in the answer or citations?
 
 This is often enough to separate a policy bug from a retrieval bug.
 
@@ -531,12 +799,21 @@ If memory is unavailable, the assistant should still work.
 
 The system should degrade gracefully by falling back to session context or asking the user again.
 
+| Scenario | Desired behavior |
+| --- | --- |
+| Memory store down | Answer using session + RAG only |
+| Empty memory | Skip memory block in prompt |
+| Stale memory detected | Ask user to confirm before use |
+| Conflicting memories | Apply explicit resolution rule |
+
 ## Security
 
 Long-term memory carries privacy responsibilities because it lasts longer and may be reused many times.
 
 ### Prompt Injection
 Do not let user-stored memory become a source of malicious instructions.
+
+Treat stored memory like untrusted text at read time. Validate category and source before insertion.
 
 ### Secrets and API Keys
 Never store passwords, tokens, or secrets as memory.
@@ -546,6 +823,8 @@ Memory must be scoped to the correct user or tenant.
 
 ### Data Privacy
 Users should know what is remembered and should be able to delete it.
+
+For education products, avoid storing graded-assignment answers or identifying school details unless clearly necessary and consented.
 
 ### Hallucinations and Model Safety
 The model may overtrust memory even if it is old or incorrect.
@@ -566,6 +845,7 @@ Evaluate memory by asking whether it actually helps.
 - Did it ever expose stale or wrong facts?
 - Could users easily delete or correct it?
 - Did memory make the assistant feel more helpful or more invasive?
+- Did answers still cite RAG sources correctly when both layers were used?
 
 ### Useful metrics
 - memory usefulness rate
@@ -573,40 +853,51 @@ Evaluate memory by asking whether it actually helps.
 - user correction rate
 - memory deletion success rate
 - retrieval precision for memory items
+- false personalization rate (memory used when irrelevant)
 
 ## Exercises
 
 ### Easy
-1. Define long-term memory.
+1. Define long-term memory in one sentence.
 2. List one benefit of persistence.
 3. List one risk of persistence.
 4. Name one thing that should not be stored long term.
+5. What is the difference between session memory and long-term memory?
+6. Name two memory categories used in this lesson.
+7. Why should users be able to delete memories?
 
 ### Medium
-5. Compare session memory and long-term memory.
-6. Explain why summaries are often better than raw transcripts.
-7. Describe one way to expire stale memory.
-8. Explain why memory retrieval should be narrow.
+8. Compare session memory and long-term memory in a table.
+9. Explain why summaries are often better than raw transcripts.
+10. Describe one way to expire stale memory.
+11. Explain why memory retrieval should be narrow.
+12. When should the assistant ask before storing a memory?
+13. How does long-term memory differ from RAG in StudySpark?
+14. Describe a simple promotion rule for preferences.
 
 ### Hard
-9. Design a promotion policy for long-term memory.
-10. Design a read policy for retrieving memory into prompts.
-11. Describe how user deletion should work end to end.
-12. Explain how to handle stale project memory.
+15. Design a promotion policy for long-term memory.
+16. Design a read policy for retrieving memory into prompts.
+17. Describe how user deletion should work end to end.
+18. Explain how to handle stale project memory.
+19. Propose a conflict-resolution rule for contradictory preferences.
+20. Design freshness metadata for project vs preference memories.
 
 ### Challenge
-13. Build a long-term memory system for a tutoring assistant.
-14. Add freshness metadata and confidence scores.
-15. Add a memory review screen or command.
-16. Add a cleanup job for expired memories.
-17. Add a fallback when no memory is available.
+21. Build a long-term memory system for a tutoring assistant.
+22. Add freshness metadata and confidence scores.
+23. Add a memory review screen or command.
+24. Add a cleanup job for expired memories.
+25. Add a fallback when no memory is available.
+26. Implement category-scoped reads for StudySpark.
+27. Add tests that prove memory never appears in lesson citations.
 
 ### Reflection Questions
-18. Why is “remember everything” a bad strategy?
-19. What makes long-term memory helpful rather than creepy?
-20. When should the assistant ask for confirmation before storing something?
-21. What is the biggest tradeoff in long-term memory systems?
-22. How does long-term memory prepare the learner for the knowledge assistant project?
+28. Why is "remember everything" a bad strategy?
+29. What makes long-term memory helpful rather than creepy?
+30. When should the assistant ask for confirmation before storing something?
+31. What is the biggest tradeoff in long-term memory systems?
+32. How does long-term memory prepare the learner for the knowledge assistant project?
 
 ## Mini Project
 Design a long-term memory system for a tutoring assistant called TutorLens.
@@ -621,6 +912,17 @@ Store useful preferences and project context across sessions so the assistant ca
 - retrieve only relevant memories into the prompt
 - expire or refresh stale memories
 - allow user review and deletion
+
+### StudySpark extension
+If you are following the capstone, implement the same ideas under `projects/studyspark/app/memory/`:
+
+```text
+projects/studyspark/app/memory/
+├── policy.py
+├── store.py
+├── retriever.py
+└── models.py
+```
 
 ### Suggested Folder Structure
 ```text
@@ -645,12 +947,71 @@ tutorlens-memory/
 4. add a read step that filters memory by relevance
 5. implement expiry and cleanup rules
 6. create a simple review and delete path
+7. verify memory never substitutes for RAG citations
 
 ### What You Learn
 - how memory becomes persistent without becoming chaotic
 - how policy protects user trust
 - how freshness and retrieval affect assistant behavior
 - how this day sets up the knowledge assistant project in Day 21
+
+## Interview Questions
+
+### Conceptual
+- What is the difference between session memory and long-term memory?
+- Why do promotion rules matter?
+- When should memory expire?
+- How is long-term memory different from RAG?
+- What makes memory feel creepy instead of helpful?
+
+### System Design
+- Design long-term memory for a study assistant with user review and delete.
+- Design decay rules for project context vs user preferences.
+- Design a read policy that keeps prompts small.
+- How would you store memory for multi-tenant SaaS?
+
+### Debugging
+- A user says the assistant "remembers the wrong thing." What do you inspect first?
+- Memory retrieval adds noise to every answer. What changed?
+- Two preference memories conflict. How do you resolve them safely?
+
+## Quizzes
+
+### Quiz 1
+1. What problem does long-term memory solve?
+2. Name one good promotion candidate and one bad one.
+3. Why is pruning necessary?
+4. What metadata should every memory item include?
+
+**Answers:** 1) Continuity across sessions. 2) Good: stated preference; bad: password or temporary task note. 3) Prevents stale/noisy stores. 4) Category, timestamps, source, and ideally confidence or expiry.
+
+### Quiz 2
+1. How is memory retrieval different from RAG retrieval?
+2. What is a soft decay strategy?
+3. Why should explicit user statements override inferred memory?
+4. What should happen when memory storage is unavailable?
+
+**Answers:** 1) Memory is user-specific context; RAG is corpus evidence with citations. 2) Lower confidence over time until refresh. 3) Higher trust and consent. 4) Graceful fallback to session and RAG.
+
+### Quiz 3
+1. Why should memory not appear in lesson citations?
+2. Name two memory categories.
+3. What is conflict resolution in memory systems?
+4. What is one privacy control users should have?
+
+**Answers:** 1) Citations must point to source documents, not personal context. 2) Preference and project (also summary, fact). 3) Rule for contradictory stored facts. 4) Review, edit, or delete.
+
+## Cumulative Capstone Update
+
+Add to [`projects/CAPSTONE.md`](../../projects/CAPSTONE.md):
+- long-term memory store design (preferences, goals, past topics)
+- rule: memory complements RAG but does not replace citations
+
+Also add to `projects/studyspark/app/memory/` when ready:
+- `LongTermMemory` model with category, confidence, `expires_at`
+- `promote_from_session(message)` policy function
+- `read_for_question(user_id, question)` narrow retriever
+- user-facing `list_memories()` and `delete_memory(id)` helpers
 
 ## Summary
 Long-term memory makes assistants feel persistent, but persistence only helps when the stored information is accurate, useful, and user-controlled.
@@ -661,8 +1022,11 @@ The main lessons from today are:
 - memory needs promotion, retrieval, refresh, and deletion rules
 - stale memory is dangerous if it is not managed
 - good memory improves continuity without crossing privacy boundaries
+- memory personalizes; RAG grounds — never swap those roles
 
-If Day 19 taught us how to decide what to remember, Day 20 teaches us how to keep those memories healthy over time.
+If Day 19 taught us how to decide what to remember, Day 20 teaches us how to keep those memories healthy over time. Tomorrow you will combine memory and retrieval in the Week 3 checkpoint: a knowledge assistant for this repository inside StudySpark.
+
+Before you close this lesson, write down three promotion rules and one decay rule for your own capstone. If you cannot state them clearly, your implementation will drift toward "remember everything"—the most common long-term memory failure mode in student and production projects alike.
 
 [Previous: Day 19 - Memory](../day_19/day_19_memory.md) | [Next: Day 21 - Knowledge Assistant Project](../day_21/day_21_knowledge_assistant_project.md)
 

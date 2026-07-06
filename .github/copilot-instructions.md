@@ -19,20 +19,32 @@ This repository is a full educational course, not a documentation site. Write ev
 Every lesson should generally include:
 - Introduction
 - Learning objectives
+- **How to Use This Lesson** (Beginner / Intermediate / Advanced paths with time estimates)
 - Prerequisites
 - Big picture
 - Deep theory
 - Visual learning with Mermaid diagrams
 - Code walkthrough
-- Practical examples
+- Practical examples (beginner through company-level)
 - Best practices
 - Common mistakes
 - Performance
 - Security
-- Exercises
+- Exercises (Easy, Medium, Hard, Challenge, Reflection)
 - Mini project
+- **Cumulative Capstone Update** (linked to `projects/CAPSTONE.md`)
 - Summary
-- Further reading
+- Further Reading
+
+## Learner Accessibility
+- Support three paths: **Beginner** (4–6h), **Intermediate** (2–4h), **Advanced** (1–3h).
+- Beginners must be able to complete theory + easy exercises without API keys where possible.
+- Use `projects/studyspark/` mock clients for hands-on work without paid APIs.
+- Never assume prior AI knowledge in Week 1.
+- One language (Python) is enough; TypeScript is optional parity.
+- Every day must have at least one **Apply Today** action (code, spec, or capstone checkbox).
+- Use consistent section names: `Further Reading`, `Cumulative Capstone Update`.
+- Capstone product name: **StudySpark** across all weeks.
 
 ## Content Quality Standards
 - Aim for 3,000 to 6,000+ words per lesson when the topic warrants it.

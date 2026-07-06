@@ -1,0 +1,1 @@
+"""StudySpark application package."""

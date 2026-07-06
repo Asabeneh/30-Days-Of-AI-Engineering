@@ -27,6 +27,25 @@ By the end of this day, you should be able to:
 - choose a vector database for a small or medium AI project
 - explain when vector search is the right tool and when it is not
 
+## How to Use This Lesson
+
+This lesson is designed for **all skill levels**. Pick one path and follow it consistently.
+
+| Level | Suggested approach | Time |
+| --- | --- | --- |
+| **Beginner** | Read Introduction → Big Picture → Deep Theory → trace one code example → Easy exercises | 5–7 hours |
+| **Intermediate** | Skim objectives → Visual Learning → Code Walkthrough → Medium/Hard exercises → Mini project | 3–5 hours |
+| **Advanced** | Deep Theory tradeoffs → Hard/Challenge exercises → extend mini project → capstone slice | 2–4 hours |
+
+### Apply Today
+Complete at least one item before moving to the next day:
+- [ ] Trace one code example in **Python or TypeScript** (one language is enough)
+- [ ] Complete exercises for your level (see Exercises section)
+- [ ] Update [`projects/CAPSTONE.md`](../../projects/CAPSTONE.md) with today's capstone item
+- [ ] Update the retrieval or memory section in `projects/CAPSTONE.md`.
+
+> **Stuck?** Re-read Big Picture, review Prerequisites, or see [SYLLABUS.md](../../SYLLABUS.md) for path guidance.
+
 ## Prerequisites
 You should already understand:
 
